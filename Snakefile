@@ -30,7 +30,7 @@ message("The current working directory is "+WORKDIR)
 ###############
 rule all:
     input:
-        expand("{sp}/{tiss}/{anim}/peaks/{sample}.q10.noMT.nodup.macs_peaks.narrowPeak", sample=samples.index, sp=samples["species"], tiss=samples["tissue"], anim=samples["animal"])
+        expand("{tiss}/{anim}/peaks/{sample}.q10.noMT.nodup.macs_peaks.narrowPeak", sample=samples.index, tiss=samples["tissue"], anim=samples["animal"])
 
 #### load rules #####
 include: "rules/trimming.smk"

@@ -8,17 +8,17 @@
 # Takes several hours with 4 cpus and 25.5G of ram
 rule map:
     input:
-        read1="{sp}/{tiss}/{anim}/trimming/{sample}/{sample}_R1_val_1.fq.gz",
-        read2="{sp}/{tiss}/{anim}/trimming/{sample}/{sample}_R2_val_2.fq.gz"
+        read1="{tiss}/{anim}/trimming/{sample}/{sample}_R1_val_1.fq.gz",
+        read2="{tiss}/{anim}/trimming/{sample}/{sample}_R2_val_2.fq.gz"
     output:
-        "{sp}/{tiss}/{anim}/mapping/{sample}.sam"
+        "{tiss}/{anim}/mapping/{sample}.sam"
     log:
-        "logs/mapping/{sp}/{tiss}/{anim}/{sample}.map.log"
+        "logs/mapping/{tiss}/{anim}/{sample}.map.log"
     threads:
         4
     params:
     # note that the following is not generic since we want to apply it to any species not just to sus_scrofa
-        genome=config["genome"]["sus_scrofa"]
+        genome=config["genome"]
     shell:
         "bowtie2 -t -p {threads} -X 2000 -x {params.genome}"
         " -1 {input.read1} -2 {input.read2} --met 60 --met-file {log}"
@@ -31,11 +31,11 @@ rule map:
 # module load bioinfo/samtools-1.9
 rule samtobam:
     input:
-        "{sp}/{tiss}/{anim}/mapping/{sample}.sam"
+        "{tiss}/{anim}/mapping/{sample}.sam"
     output:
-        temp("{sp}/{tiss}/{anim}/mapping/{sample}.unsorted.bam")
+        temp("{tiss}/{anim}/mapping/{sample}.unsorted.bam")
     log:
-        "logs/mapping/{sp}/{tiss}/{anim}/{sample}.tobam.log"
+        "logs/mapping/{tiss}/{anim}/{sample}.tobam.log"
     threads:
         4
     shell:
@@ -48,11 +48,11 @@ rule samtobam:
 # module load bioinfo/samtools-1.9
 rule bamsort:
     input:
-        "{sp}/{tiss}/{anim}/mapping/{sample}.unsorted.bam"
+        "{tiss}/{anim}/mapping/{sample}.unsorted.bam"
     output:
-        "{sp}/{tiss}/{anim}/mapping/{sample}.bam"
+        "{tiss}/{anim}/mapping/{sample}.bam"
     log:
-        "logs/mapping/{sp}/{tiss}/{anim}/{sample}.bamsort.log"
+        "logs/mapping/{tiss}/{anim}/{sample}.bamsort.log"
     threads:
         4
     shell:
@@ -66,11 +66,11 @@ rule bamsort:
 # module load bioinfo/samtools-1.9
 rule bamindex:
     input:
-        "{sp}/{tiss}/{anim}/mapping/{sample}.bam"
+        "{tiss}/{anim}/mapping/{sample}.bam"
     output:
-        "{sp}/{tiss}/{anim}/mapping/{sample}.bam.bai"
+        "{tiss}/{anim}/mapping/{sample}.bam.bai"
     log:
-        "logs/mapping/{sp}/{tiss}/{anim}/{sample}.bamidx.log"
+        "logs/mapping/{tiss}/{anim}/{sample}.bamidx.log"
     shell:
         "samtools index {input} 2> {log}"
 
@@ -82,11 +82,11 @@ rule bamindex:
 # module load bioinfo/samtools-1.9
 rule bamflag:
     input:
-        "{sp}/{tiss}/{anim}/mapping/{sample}.bam"
+        "{tiss}/{anim}/mapping/{sample}.bam"
     output:
-        "{sp}/{tiss}/{anim}/mapping/{sample}.bam.flagstat"
+        "{tiss}/{anim}/mapping/{sample}.bam.flagstat"
     log:
-        "logs/mapping/{sp}/{tiss}/{anim}/{sample}.bamflag.log"
+        "logs/mapping/{tiss}/{anim}/{sample}.bamflag.log"
     shell:
         "samtools flagstat {input} > {output} 2> {log}"
 
@@ -97,11 +97,11 @@ rule bamflag:
 # module load bioinfo/samtools-1.9
 rule mapq10:
     input:
-        "{sp}/{tiss}/{anim}/mapping/{sample}.bam"
+        "{tiss}/{anim}/mapping/{sample}.bam"
     output:
-        temp("{sp}/{tiss}/{anim}/mapping/{sample}.mono.bam")
+        temp("{tiss}/{anim}/mapping/{sample}.mono.bam")
     log:
-        "logs/mapping/{sp}/{tiss}/{anim}/{sample}.mapq10.log"
+        "logs/mapping/{tiss}/{anim}/{sample}.mapq10.log"
     threads:
         4
     shell:
@@ -115,11 +115,11 @@ rule mapq10:
 # module load bioinfo/samtools-1.9
 rule mapq10paired:
     input:
-        "{sp}/{tiss}/{anim}/mapping/{sample}.mono.bam"
+        "{tiss}/{anim}/mapping/{sample}.mono.bam"
     output:
-        temp("{sp}/{tiss}/{anim}/mapping/{sample}.paired.unsorted.bam")
+        temp("{tiss}/{anim}/mapping/{sample}.paired.unsorted.bam")
     log:
-        "logs/mapping/{sp}/{tiss}/{anim}/{sample}.mapq10.paired.log"
+        "logs/mapping/{tiss}/{anim}/{sample}.mapq10.paired.log"
     threads:
         4
     shell:
@@ -134,11 +134,11 @@ rule mapq10paired:
 # module load bioinfo/samtools-1.9
 rule bamq10sort:
     input:
-        "{sp}/{tiss}/{anim}/mapping/{sample}.paired.unsorted.bam"
+        "{tiss}/{anim}/mapping/{sample}.paired.unsorted.bam"
     output:
-        "{sp}/{tiss}/{anim}/mapping/{sample}.q10.bam"
+        "{tiss}/{anim}/mapping/{sample}.q10.bam"
     log:
-        "logs/mapping/{sp}/{tiss}/{anim}/{sample}.bamq10.sort.log"
+        "logs/mapping/{tiss}/{anim}/{sample}.bamq10.sort.log"
     threads:
         4
     shell:
@@ -151,11 +151,11 @@ rule bamq10sort:
 # module load bioinfo/samtools-1.9
 rule bamq10index:
     input:
-        "{sp}/{tiss}/{anim}/mapping/{sample}.q10.bam"
+        "{tiss}/{anim}/mapping/{sample}.q10.bam"
     output:
-        "{sp}/{tiss}/{anim}/mapping/{sample}.q10.bam.bai"
+        "{tiss}/{anim}/mapping/{sample}.q10.bam.bai"
     log:
-        "logs/mapping/{sp}/{tiss}/{anim}/{sample}.bamq10.index.log"
+        "logs/mapping/{tiss}/{anim}/{sample}.bamq10.index.log"
     shell:
         "samtools index {input} 2> {log}"
 
@@ -166,11 +166,11 @@ rule bamq10index:
 # module load bioinfo/samtools-1.9
 rule bamq10flag:
     input:
-        "{sp}/{tiss}/{anim}/mapping/{sample}.q10.bam"
+        "{tiss}/{anim}/mapping/{sample}.q10.bam"
     output:
-        "{sp}/{tiss}/{anim}/mapping/{sample}.q10.bam.flagstat"
+        "{tiss}/{anim}/mapping/{sample}.q10.bam.flagstat"
     log:
-        "logs/mapping/{sp}/{tiss}/{anim}/{sample}.bamq10.flag.log"
+        "logs/mapping/{tiss}/{anim}/{sample}.bamq10.flag.log"
     shell:
         "samtools flagstat {input} > {output} 2> {log}"
 
@@ -181,10 +181,10 @@ rule bamq10flag:
 # module load bioinfo/samtools-1.9
 rule bamq10_idxstats:
     input:
-        "{sp}/{tiss}/{anim}/mapping/{sample}.q10.bam"
+        "{tiss}/{anim}/mapping/{sample}.q10.bam"
     output:
-        "{sp}/{tiss}/{anim}/mapping/{sample}.q10.bam.idxstats"
+        "{tiss}/{anim}/mapping/{sample}.q10.bam.idxstats"
     log:
-        "logs/mapping/{sp}/{tiss}/{anim}/{sample}.bamq10.idxstats.log"
+        "logs/mapping/{tiss}/{anim}/{sample}.bamq10.idxstats.log"
     shell:
         "samtools idxstats {input} > {output} 2> {log}"
