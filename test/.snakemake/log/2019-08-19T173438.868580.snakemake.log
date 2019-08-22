@@ -1,0 +1,25 @@
+Building DAG of jobs...
+candidate job all
+	wildcards: 
+candidate job peakcall
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+candidate job remove_pcrdup
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+candidate job remove_mito
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+candidate job bamq10sort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+candidate job mapq10paired
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+candidate job mapq10
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+candidate job bamsort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+candidate job samtobam
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+candidate job map
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+MissingInputException in line 9 of /work/project/fragencode/tools/atacseq/snakemake/rules/mapping.smk:
+Missing input files for rule map:
+sus_scrofa/liver/pig1/trimming/pig1_liver_val_1.fq.gz
+sus_scrofa/liver/pig1/trimming/pig1_liver_val_2.fq.gz

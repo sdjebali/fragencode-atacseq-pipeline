@@ -1,0 +1,5 @@
+Multiple include of /work/project/fragencode/tools/atacseq/snakemake/rules/common.smk ignored
+SyntaxError:
+Not all output, log and benchmark files of rule trimming contain the same wildcards. This is crucial though, in order to avoid that two or more jobs write to the same file.
+  File "/work/project/fragencode/tools/atacseq/snakemake/Snakefile", line 37, in <module>
+  File "/work/project/fragencode/tools/atacseq/snakemake/rules/trimming.smk", line 22, in <module>

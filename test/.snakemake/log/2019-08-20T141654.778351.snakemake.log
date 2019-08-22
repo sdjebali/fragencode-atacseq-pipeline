@@ -1,0 +1,4 @@
+KeyError in line 20 of /work/project/fragencode/tools/atacseq/snakemake/rules/mapping.smk:
+'{sp}'
+  File "/work/project/fragencode/tools/atacseq/snakemake/Snakefile", line 37, in <module>
+  File "/work/project/fragencode/tools/atacseq/snakemake/rules/mapping.smk", line 20, in <module>

@@ -1,0 +1,68 @@
+Building DAG of jobs...
+candidate job all
+	wildcards: 
+candidate job peakcall
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1.liver
+candidate job remove_pcrdup
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1.liver
+candidate job remove_mito
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1.liver
+candidate job bamq10sort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1.liver
+candidate job mapq10paired
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1.liver
+candidate job mapq10
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1.liver
+candidate job bamsort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1.liver
+candidate job bamsort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1.liver.unsorted
+candidate job bamsort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1.liver.unsorted.unsorted
+candidate job bamsort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1.liver.unsorted.unsorted.unsorted
+candidate job bamsort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1.liver.unsorted.unsorted.unsorted.unsorted
+candidate job bamsort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1.liver.unsorted.unsorted.unsorted.unsorted.unsorted
+candidate job bamsort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1.liver.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted
+candidate job bamsort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1.liver.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted
+candidate job bamsort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1.liver.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted
+candidate job bamsort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1.liver.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted
+candidate job bamsort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1.liver.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted
+candidate job bamsort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1.liver.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted
+candidate job bamsort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1.liver.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted
+candidate job bamsort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1.liver.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted
+candidate job bamsort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1.liver.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted
+candidate job bamsort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1.liver.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted
+candidate job bamsort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1.liver.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted
+candidate job bamsort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1.liver.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted
+candidate job bamsort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1.liver.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted
+candidate job bamsort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1.liver.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted
+candidate job bamsort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1.liver.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted
+candidate job samtobam
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1.liver.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted
+candidate job map
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1.liver.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted
+InputFunctionException in line 10 of /work/project/fragencode/tools/atacseq/snakemake/rules/trimming.smk:
+KeyError: 'the label [pig1.liver.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted_val_1.fq.gz] is not in the [index]'
+Wildcards:
+sp=sus_scrofa
+tiss=liver
+anim=pig1
+sample=pig1.liver.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted.unsorted_val_1.fq.gz

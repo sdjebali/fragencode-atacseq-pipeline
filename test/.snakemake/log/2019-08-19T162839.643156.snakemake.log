@@ -1,0 +1,6 @@
+KeyboardInterrupt in line 1 of /work/project/fragencode/tools/atacseq/snakemake/Snakefile.
+  File "/work/project/fragencode/tools/atacseq/snakemake/Snakefile", line 1, in <module>
+  File "/home/sdjebali/.conda/envs/atacseq/lib/python3.6/site-packages/pandas/__init__.py", line 13, in <module>
+  File "/home/sdjebali/.conda/envs/atacseq/lib/python3.6/site-packages/numpy/__init__.py", line 145, in <module>
+  File "/home/sdjebali/.conda/envs/atacseq/lib/python3.6/site-packages/numpy/lib/__init__.py", line 19, in <module>
+  File "/home/sdjebali/.conda/envs/atacseq/lib/python3.6/site-packages/numpy/lib/scimath.py", line 33, in <module>

@@ -1,0 +1,2 @@
+sample	read1	read2
+pig1_liver	/work/project/fragencode/tools/atacseq/fragencode-atacseq-pipeline/test/subset_1_ATAC62_atacseq_combined_R1.fastq.gz	/work/project/fragencode/tools/atacseq/fragencode-atacseq-pipeline/test/subset_1_ATAC62_atacseq_combined_R2.fastq.gz

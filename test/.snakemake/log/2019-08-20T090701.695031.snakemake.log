@@ -1,0 +1,51 @@
+Building DAG of jobs...
+candidate job all
+	wildcards: 
+candidate job peakcall
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+candidate job remove_pcrdup
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+candidate job remove_mito
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+candidate job bamq10sort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+candidate job mapq10paired
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+candidate job mapq10
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+candidate job bamsort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+candidate job samtobam
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+candidate job map
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+candidate job trimming
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+selected job trimming
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+candidate job trimming
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+selected job trimming
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+selected job map
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+selected job samtobam
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+selected job bamsort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+selected job mapq10
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+selected job mapq10paired
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+selected job bamq10sort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+selected job remove_mito
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+selected job remove_pcrdup
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+selected job peakcall
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+selected job all
+	wildcards: 
+WorkflowError:
+Conda env file does not exist: /work/project/fragencode/tools/atacseq/snakemake/rules/envs/macs2.yaml

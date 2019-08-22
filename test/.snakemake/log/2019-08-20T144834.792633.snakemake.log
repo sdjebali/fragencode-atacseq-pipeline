@@ -1,0 +1,116 @@
+Building DAG of jobs...
+candidate job all
+	wildcards: 
+candidate job peakcall
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+candidate job remove_pcrdup
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+candidate job remove_mito
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+candidate job bamq10sort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+candidate job mapq10paired
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+candidate job mapq10
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+candidate job bamsort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+candidate job samtobam
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+candidate job map
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+candidate job trimming
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+selected job trimming
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+candidate job trimming
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+selected job trimming
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+selected job map
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+selected job samtobam
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+selected job bamsort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+selected job mapq10
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+selected job mapq10paired
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+selected job bamq10sort
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+selected job remove_mito
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+selected job remove_pcrdup
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+selected job peakcall
+	wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+selected job all
+	wildcards: 
+Using shell: /usr/bin/bash
+Provided cluster nodes: 30
+Job counts:
+	count	jobs
+	1	all
+	1	bamq10sort
+	1	mapq10paired
+	1	peakcall
+	1	remove_mito
+	1	remove_pcrdup
+	6
+
+[Tue Aug 20 14:48:43 2019]
+rule mapq10paired:
+    input: sus_scrofa/liver/pig1/mapping/pig1_liver.mono.bam
+    output: sus_scrofa/liver/pig1/mapping/pig1_liver.paired.unsorted.bam
+    log: logs/mapping/sus_scrofa/liver/pig1/pig1_liver.mapq10.paired.log
+    jobid: 5
+    wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+    threads: 4
+
+samtools sort -n -@ 4 -m 4G sus_scrofa/liver/pig1/mapping/pig1_liver.mono.bam -o - | samtools view -h - | awk -f scripts/keep.paired.reads.awk | samtools view -Sbh - > sus_scrofa/liver/pig1/mapping/pig1_liver.paired.unsorted.bam 2> logs/mapping/sus_scrofa/liver/pig1/pig1_liver.mapq10.paired.log
+Submitted DRMAA job 5 with external jobid 7306879.
+Removing temporary output file sus_scrofa/liver/pig1/mapping/pig1_liver.mono.bam.
+[Tue Aug 20 14:49:13 2019]
+Finished job 5.
+1 of 6 steps (17%) done
+
+[Tue Aug 20 14:49:13 2019]
+rule bamq10sort:
+    input: sus_scrofa/liver/pig1/mapping/pig1_liver.paired.unsorted.bam
+    output: sus_scrofa/liver/pig1/mapping/pig1_liver.q10.bam
+    log: logs/mapping/sus_scrofa/liver/pig1/pig1_liver.bamq10.sort.log
+    jobid: 4
+    wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+    threads: 4
+
+samtools sort -@ 4 -m 4G sus_scrofa/liver/pig1/mapping/pig1_liver.paired.unsorted.bam -O bam -o sus_scrofa/liver/pig1/mapping/pig1_liver.q10.bam 2> logs/mapping/sus_scrofa/liver/pig1/pig1_liver.bamq10.sort.log
+Submitted DRMAA job 4 with external jobid 7306881.
+Removing temporary output file sus_scrofa/liver/pig1/mapping/pig1_liver.paired.unsorted.bam.
+[Tue Aug 20 14:49:23 2019]
+Finished job 4.
+2 of 6 steps (33%) done
+
+[Tue Aug 20 14:49:23 2019]
+rule remove_mito:
+    input: sus_scrofa/liver/pig1/mapping/pig1_liver.q10.bam
+    output: sus_scrofa/liver/pig1/filtering/pig1_liver.q10.noMT.bam
+    log: logs/filtering/sus_scrofa/liver/pig1/pig1_liver.noMT.log
+    jobid: 3
+    wildcards: sp=sus_scrofa, tiss=liver, anim=pig1, sample=pig1_liver
+
+samtools idxstats sus_scrofa/liver/pig1/mapping/pig1_liver.q10.bam | awk '{print $1}' | grep -v MT | xargs samtools view -bh sus_scrofa/liver/pig1/mapping/pig1_liver.q10.bam > sus_scrofa/liver/pig1/filtering/pig1_liver.q10.noMT.bam 2> logs/filtering/sus_scrofa/liver/pig1/pig1_liver.noMT.log
+Submitted DRMAA job 3 with external jobid 7306882.
+[Tue Aug 20 14:49:43 2019]
+Error in rule remove_mito:
+    jobid: 3
+    output: sus_scrofa/liver/pig1/filtering/pig1_liver.q10.noMT.bam
+    log: logs/filtering/sus_scrofa/liver/pig1/pig1_liver.noMT.log (check log file(s) for error message)
+    shell:
+        samtools idxstats sus_scrofa/liver/pig1/mapping/pig1_liver.q10.bam | awk '{print $1}' | grep -v MT | xargs samtools view -bh sus_scrofa/liver/pig1/mapping/pig1_liver.q10.bam > sus_scrofa/liver/pig1/filtering/pig1_liver.q10.noMT.bam 2> logs/filtering/sus_scrofa/liver/pig1/pig1_liver.noMT.log
+        (exited with non-zero exit code)
+
+Error executing rule remove_mito on cluster (jobid: 3, external: 7306882, jobscript: /work/project/fragencode/tools/atacseq/snakemake/test/.snakemake/tmp.4rap7fm7/snakejob.remove_mito.3.sh). For detailed error see the cluster log.
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /work/project/fragencode/tools/atacseq/snakemake/test/.snakemake/log/2019-08-20T144834.792633.snakemake.log

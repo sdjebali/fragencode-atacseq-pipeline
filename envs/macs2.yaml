@@ -1,0 +1,8 @@
+name: macs2
+channels:
+  - conda-forge
+  - bioconda
+  - r
+  - defaults
+dependencies:
+  - macs2

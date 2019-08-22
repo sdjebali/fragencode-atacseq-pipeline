@@ -1,0 +1,22 @@
+*** The current working directory is /work/project/fragencode/tools/atacseq/fragencode-atacseq-pipeline/test ***
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	remove_mito
+	1
+
+[Thu Aug 22 13:34:12 2019]
+rule remove_mito:
+    input: liver/pig1/mapping/pig1_liver.q10.bam, liver/pig1/mapping/pig1_liver.q10.bam.bai
+    output: liver/pig1/filtering/pig1_liver.q10.noMT.bam
+    log: logs/filtering/liver/pig1/pig1_liver.noMT.log
+    jobid: 0
+    wildcards: tiss=liver, anim=pig1, sample=pig1_liver
+
+samtools idxstats liver/pig1/mapping/pig1_liver.q10.bam | awk '{print $1}' | grep -v MT | xargs samtools view -bh liver/pig1/mapping/pig1_liver.q10.bam liver/pig1/mapping/pig1_liver.q10.bam.bai > liver/pig1/filtering/pig1_liver.q10.noMT.bam 2> logs/filtering/liver/pig1/pig1_liver.noMT.log
+[Thu Aug 22 13:34:12 2019]
+Finished job 0.
+1 of 1 steps (100%) done

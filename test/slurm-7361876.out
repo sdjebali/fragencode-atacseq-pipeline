@@ -1,0 +1,22 @@
+*** The current working directory is /work/project/fragencode/tools/atacseq/fragencode-atacseq-pipeline/test ***
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	trimming
+	1
+
+[Thu Aug 22 12:13:15 2019]
+rule trimming:
+    input: /work/project/fragencode/tools/atacseq/fragencode-atacseq-pipeline/test/subset_1_ATAC62_atacseq_combined_R1.fastq.gz, /work/project/fragencode/tools/atacseq/fragencode-atacseq-pipeline/test/subset_1_ATAC62_atacseq_combined_R2.fastq.gz
+    output: liver/pig1/trimming/pig1_liver/pig1_liver_trim_galore.out, liver/pig1/trimming/pig1_liver/pig1_liver_R1_val_1.fq.gz, liver/pig1/trimming/pig1_liver/pig1_liver_R2_val_2.fq.gz
+    log: logs/trimming/liver/pig1/pig1_liver.log
+    jobid: 0
+    wildcards: tiss=liver, anim=pig1, sample=pig1_liver
+
+outdir=`dirname liver/pig1/trimming/pig1_liver/pig1_liver_trim_galore.out`;trim_galore --basename pig1_liver --stringency 3 -q 20 --paired --nextera -o $outdir /work/project/fragencode/tools/atacseq/fragencode-atacseq-pipeline/test/subset_1_ATAC62_atacseq_combined_R1.fastq.gz /work/project/fragencode/tools/atacseq/fragencode-atacseq-pipeline/test/subset_1_ATAC62_atacseq_combined_R2.fastq.gz > liver/pig1/trimming/pig1_liver/pig1_liver_trim_galore.out 2> logs/trimming/liver/pig1/pig1_liver.log
+[Thu Aug 22 12:17:46 2019]
+Finished job 0.
+1 of 1 steps (100%) done

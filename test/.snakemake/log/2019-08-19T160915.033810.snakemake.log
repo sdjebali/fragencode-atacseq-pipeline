@@ -1,0 +1,4 @@
+ModuleNotFoundError in line 9 of /work/project/fragencode/tools/atacseq/snakemake/rules/common.smk:
+No module named 'termcolor'
+  File "/work/project/fragencode/tools/atacseq/snakemake/Snakefile", line 4, in <module>
+  File "/work/project/fragencode/tools/atacseq/snakemake/rules/common.smk", line 9, in <module>
