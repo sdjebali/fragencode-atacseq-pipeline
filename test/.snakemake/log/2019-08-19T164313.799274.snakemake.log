@@ -1,8 +1,0 @@
-Building DAG of jobs...
-InputFunctionException in line 10 of /work/project/fragencode/tools/atacseq/snakemake/rules/trimming.smk:
-KeyError: 'the label [pig1.liver.1pcent_val_1.fq.gz] is not in the [index]'
-Wildcards:
-sp=sus_scrofa
-tiss=liver
-anim=pig1
-sample=pig1.liver.1pcent_val_1.fq.gz

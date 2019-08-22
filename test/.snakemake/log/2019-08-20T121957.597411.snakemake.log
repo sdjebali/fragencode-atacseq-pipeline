@@ -1,4 +1,0 @@
-TypeError in line 12 of /work/project/fragencode/tools/atacseq/snakemake/rules/trimming.smk:
-get_fastq() missing 1 required positional argument: 'wildcards'
-  File "/work/project/fragencode/tools/atacseq/snakemake/Snakefile", line 39, in <module>
-  File "/work/project/fragencode/tools/atacseq/snakemake/rules/trimming.smk", line 12, in <module>

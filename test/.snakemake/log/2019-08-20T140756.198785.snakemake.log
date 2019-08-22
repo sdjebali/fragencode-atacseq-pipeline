@@ -1,4 +1,0 @@
-NameError in line 21 of /work/project/fragencode/tools/atacseq/snakemake/rules/mapping.smk:
-name 'sp' is not defined
-  File "/work/project/fragencode/tools/atacseq/snakemake/Snakefile", line 42, in <module>
-  File "/work/project/fragencode/tools/atacseq/snakemake/rules/mapping.smk", line 21, in <module>

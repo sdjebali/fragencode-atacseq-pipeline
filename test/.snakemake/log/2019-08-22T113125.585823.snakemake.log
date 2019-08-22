@@ -1,4 +1,0 @@
-TypeError in line 21 of /work/project/fragencode/tools/atacseq/fragencode-atacseq-pipeline/rules/mapping.smk:
-string indices must be integers
-  File "/work/project/fragencode/tools/atacseq/fragencode-atacseq-pipeline/Snakefile", line 37, in <module>
-  File "/work/project/fragencode/tools/atacseq/fragencode-atacseq-pipeline/rules/mapping.smk", line 21, in <module>

@@ -1,6 +1,0 @@
-Building DAG of jobs...
-candidate job all
-	wildcards: 
-MissingInputException in line 31 of /work/project/fragencode/tools/atacseq/fragencode-atacseq-pipeline/Snakefile:
-Missing input files for rule all:
-liver/pig1/peaks/pig1.liver.1pcent.q10.noMT.nodup.macs_peaks.narrowPeak

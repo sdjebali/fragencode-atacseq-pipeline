@@ -1,3 +1,0 @@
-KeyError in line 10 of /work/project/fragencode/tools/atacseq/snakemake/Snakefile:
-'species_file'
-  File "/work/project/fragencode/tools/atacseq/snakemake/Snakefile", line 10, in <module>
