@@ -1,5 +1,0 @@
-species	genome	annotation
-bos_taurus	/work/project/fragencode/data/species/bos_taurus/UMD3.1.90/bos_taurus.fa	/work/project/fragencode/data/species/bos_taurus/UMD3.1.90/bos_taurus.gtf
-capra_hircus	/work/project/fragencode/data/species/capra_hircus/CHIR_1.0.102/capra_hircus.fa	/work/project/fragencode/data/species/capra_hircus/CHIR_1.0.102/capra_hircus.gtf
-gallus_gallus	/work/project/fragencode/data/species/gallus_gallus/Gallus_gallus-5.0.90/gallus_gallus.fa	/work/project/fragencode/data/species/gallus_gallus/Gallus_gallus-5.0.90/gallus_gallus.gtf
-sus_scrofa	/work/project/fragencode/data/species/sus_scrofa/Sscrofa11.1.90/sus_scrofa.fa	/work/project/fragencode/data/species/sus_scrofa/Sscrofa11.1.90/sus_scrofa.gtf
