@@ -120,11 +120,13 @@ rule mapq10paired:
         temp("{tiss}/{anim}/mapping/{sample}.paired.unsorted.bam")
     log:
         "logs/mapping/{tiss}/{anim}/{sample}.mapq10.paired.log"
+    params:
+        path=snakedir
     threads:
         4
     shell:
         "samtools sort -n -@ {threads} -m 4G {input} -o - |"
-        " samtools view -h - | awk -f scripts/keep.paired.reads.awk |"
+        " samtools view -h - | awk -f {params.path}/scripts/keep.paired.reads.awk |"
         " samtools view -Sbh - > {output} 2> {log}"
 
 #################################################

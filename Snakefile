@@ -3,6 +3,9 @@ from snakemake.utils import validate
 
 include: "rules/common.smk"
 
+# path to snakefile
+snakedir = os.path.dirname(workflow.snakefile)
+
 ##### load config and read file #####
 configfile: "config.yaml"
 #validate(config, schema="schemas/config.schema.yaml")

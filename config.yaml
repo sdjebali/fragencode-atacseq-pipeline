@@ -3,10 +3,10 @@ read_file: "reads.tsv"
 
 mito: "MT"
 picard: "/work/project/fragencode/tools/multi/picard-tools-2.20.4/picard.jar"
-workdir: "/work/project/fragencode/tools/atacseq/fragencode-atacseq-pipeline"
+workdir: "/work/project/fragencode/tools/atacseq/fragencode-atacseq-pipeline/test"
 
 genome:
   /work/project/fragencode/tools/atacseq/fragencode-atacseq-pipeline/test/small.fa
 
 annot:
-  /work/project/fragencode/data/species/sus_scrofa/Sscrofa11.1.90/sus_scrofa.gtf
+  /work/project/fragencode/tools/atacseq/fragencode-atacseq-pipeline/test/small.gtf

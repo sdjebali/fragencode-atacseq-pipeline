@@ -27,11 +27,10 @@ module load bioinfo/bowtie2-2.3.5.1
 
 ## Usage
 **************************************
-Make sure samples.tsv, reads.tsv and config.yaml files are fine
+Make sure samples.tsv, reads.tsv and config.yaml files have the correct content
 
 ## Caution
-The genome files must be indexed with bowtie2
-
+The genome files must be indexed with bowtie2 before running the pipeline
 
 ## Running snakemake
 <pre>
