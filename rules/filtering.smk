@@ -1,8 +1,6 @@
 ##############################
 # Remove mitochondrial reads #
 ##############################
-# Use samtools version 1.9
-# module load bioinfo/samtools-1.9
 rule remove_mito:
     input:
         bam="{tiss}/{anim}/mapping/{sample}.q10.bam",
@@ -21,8 +19,6 @@ rule remove_mito:
 ###############################################################
 # Making index of bam file after mitochondrial read removal   #
 ###############################################################
-# Use samtools version 1.9
-# module load bioinfo/samtools-1.9
 rule nomt_index:
     input:
         "{tiss}/{anim}/filtering/{sample}.q10.noMT.bam"
@@ -37,8 +33,6 @@ rule nomt_index:
 ######################################################################
 # Making idxstats of the bam file after mitochondrial read removal   #
 ######################################################################
-# Use samtools version 1.9
-# module load bioinfo/samtools-1.9
 rule nomt_idxstats:
     input:
         "{tiss}/{anim}/filtering/{sample}.q10.noMT.bam"
@@ -52,8 +46,6 @@ rule nomt_idxstats:
 ######################################################################
 # Making flagstat of the bam file after mitochondrial read removal   #
 ######################################################################
-# Use samtools version 1.9
-# module load bioinfo/samtools-1.9
 rule nomt_flag:
     input:
         "{tiss}/{anim}/filtering/{sample}.q10.noMT.bam"
@@ -68,9 +60,6 @@ rule nomt_flag:
 ##########################
 # Remove PCR duplicates  #
 ##########################
-# Use Java8
-# module load system/Java8
-# Use picard 2.20.4 see config.yaml
 rule remove_pcrdup:
     input:
         "{tiss}/{anim}/filtering/{sample}.q10.noMT.bam"
@@ -89,8 +78,6 @@ rule remove_pcrdup:
 #######################################################
 # Make index of bam file after PCR duplicate removal  #
 #######################################################
-# Use samtools version 1.9
-# module load bioinfo/samtools-1.9
 rule nomtdup_index:
     input:
         "{tiss}/{anim}/filtering/{sample}.q10.noMT.nodup.bam"
@@ -104,8 +91,6 @@ rule nomtdup_index:
 ##############################################################
 # Make idxstats of the bam file after PCR duplicate removal  #
 ##############################################################
-# Use samtools version 1.9
-# module load bioinfo/samtools-1.9
 rule nomtdup_idxstats:
     input:
         "{tiss}/{anim}/filtering/{sample}.q10.noMT.nodup.bam"
@@ -119,8 +104,6 @@ rule nomtdup_idxstats:
 ##############################################################
 # Make flagstat of the bam file after PCR duplicate removal  #
 ##############################################################
-# Use samtools version 1.9
-# module load bioinfo/samtools-1.9
 rule nomtdup_flagstat:
     input:
         "{tiss}/{anim}/filtering/{sample}.q10.noMT.nodup.bam"
@@ -134,8 +117,6 @@ rule nomtdup_flagstat:
 ############################################################################
 # Colleting multiple metrix from the bam file after PCR duplicate removal  #
 ############################################################################
-# Use Java8
-# module load system/Java8
 rule collect_metrics:
     input:
         "{tiss}/{anim}/filtering/{sample}.q10.noMT.nodup.bam"

@@ -2,7 +2,6 @@
 ############################
 # Calling peaks with MACS2 #
 ############################
-# Use macs2 version 2.1.1.20160309 in /tools/python/2.7.2/bin/macs2
 rule peakcall:
     input:
         "{tiss}/{anim}/filtering/{sample}.q10.noMT.nodup.bam"

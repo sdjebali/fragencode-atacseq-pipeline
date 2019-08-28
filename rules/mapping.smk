@@ -3,8 +3,6 @@
 #####################
 # Map trimmed reads #
 #####################
-# Use bowtie2 version 2.3.5.1
-# module load bioinfo/bowtie2-2.3.5.1
 # Takes several hours with 4 cpus and 25.5G of ram
 rule map:
     input:
@@ -27,8 +25,6 @@ rule map:
 ###################
 # Convert to bam  #
 ###################
-# Use samtools version 1.9
-# module load bioinfo/samtools-1.9
 rule samtobam:
     input:
         "{tiss}/{anim}/mapping/{sample}.sam"
@@ -44,8 +40,6 @@ rule samtobam:
 #####################
 # Sort the bam file #
 #####################
-# Use samtools version 1.9
-# module load bioinfo/samtools-1.9
 rule bamsort:
     input:
         "{tiss}/{anim}/mapping/{sample}.unsorted.bam"
@@ -62,8 +56,6 @@ rule bamsort:
 ######################
 # Index the bam file #
 ######################
-# Use samtools version 1.9
-# module load bioinfo/samtools-1.9
 rule bamindex:
     input:
         "{tiss}/{anim}/mapping/{sample}.bam"
@@ -78,8 +70,6 @@ rule bamindex:
 #########################
 # Flagstat the bam file #
 #########################
-# Use samtools version 1.9
-# module load bioinfo/samtools-1.9
 rule bamflag:
     input:
         "{tiss}/{anim}/mapping/{sample}.bam"
@@ -93,8 +83,6 @@ rule bamflag:
 ############################################################
 # Extract the mapped reads with MAPQ>=10 and mapped mate   #
 ############################################################
-# Use samtools version 1.9
-# module load bioinfo/samtools-1.9
 rule mapq10:
     input:
         "{tiss}/{anim}/mapping/{sample}.bam"
@@ -111,8 +99,6 @@ rule mapq10:
 ##############################################################################################
 # Sort the reads by name to keep pairs with both reads mapped with mapq10 on the same chrom  #
 ##############################################################################################
-# Use samtools version 1.9
-# module load bioinfo/samtools-1.9
 rule mapq10paired:
     input:
         "{tiss}/{anim}/mapping/{sample}.mono.bam"
@@ -132,8 +118,6 @@ rule mapq10paired:
 #################################################
 # Sort the reads after the mapq10 paired filter #
 #################################################
-# Use samtools version 1.9
-# module load bioinfo/samtools-1.9
 rule bamq10sort:
     input:
         "{tiss}/{anim}/mapping/{sample}.paired.unsorted.bam"
@@ -149,8 +133,6 @@ rule bamq10sort:
 ################################################
 # Make index of the resulting final bam file   #
 ################################################
-# Use samtools version 1.9
-# module load bioinfo/samtools-1.9
 rule bamq10index:
     input:
         "{tiss}/{anim}/mapping/{sample}.q10.bam"
@@ -164,8 +146,6 @@ rule bamq10index:
 ###################################################
 # Make flagstat of the resulting final bam file   #
 ###################################################
-# Use samtools version 1.9
-# module load bioinfo/samtools-1.9
 rule bamq10flag:
     input:
         "{tiss}/{anim}/mapping/{sample}.q10.bam"
@@ -179,8 +159,6 @@ rule bamq10flag:
 ###################################################
 # Make idxstats of the resulting final bam file   #
 ###################################################
-# Use samtools version 1.9
-# module load bioinfo/samtools-1.9
 rule bamq10_idxstats:
     input:
         "{tiss}/{anim}/mapping/{sample}.q10.bam"
