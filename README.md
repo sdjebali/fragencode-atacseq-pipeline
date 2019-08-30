@@ -1,5 +1,5 @@
 # FR-AgENCODE ATAC-seq pipeline
-This is the pipeline to process ATAC-seq data from fastq to peaks used in the FR-AgENCODE project
+This is the pipeline to process ATAC-seq data from fastq to peaks used in the FR-AgENCODE project http://www.fragencode.org/
 
 ## Download the code
 <pre>
